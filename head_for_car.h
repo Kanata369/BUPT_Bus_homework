@@ -3,13 +3,14 @@
 #define MAX_NUM (1000)//站点最大个数
 #define clockwise (0)
 #define counter_clockwise (1)
+#define dis_max 99
 
 struct _CAR
 {
     int id;
     int pos;
     int direction;
-    int destination = -1;//用于最短寻找时间策略中，标记当前车的目标站点
+    int target = -1;//用于最短寻找时间策略中，标记当前车的目标站点
 };
 typedef struct _CAR car;
 
@@ -17,20 +18,16 @@ struct _REQUEST
 {
     int id;
     int direction;
-    int get_on = 0;//若为1，则为上车请求，若为0，则为下车请求，不会起名orz
+    int distance;
     struct _REQUEST* next;
 }
 typedef _REQUEST request;
 
-struct _MAP
-{
-    int length;
-    int total_station;
-};
-typedef _MAP map;
 
-int max_time_wait;
-int waiting;
+int sta_dis;//站点距离
+int sta_num;//站点数
+int length;//总长度
+
 station* head = NULL;//链表头
 int status[MAX_NUM][3]//输出时更新，表示站点的请求状态
 //0表示顺时针，1表示逆时针，2代表下车请求
