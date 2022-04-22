@@ -1,8 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define MAX_NUM (1000)//站点最大个数
+#define MAX_NUM (10)//站点最大个数
 #define clockwise (0)
 #define counter_clockwise (1)
+#define get_off (2)
+#define FCFS (0)//先来先服务策略,first come first serve
+#define SSTF (1)//最短寻找时间优先策略,shortest seek time first
+#define BTWS (2)//顺便服务策略,by the way service
 #define dis_max 99
 
 struct _CAR
@@ -20,14 +24,16 @@ struct _REQUEST
     int id;
     int direction;
     int distance;
+    int status;//表示请求种类
     struct _REQUEST* next;
 }
 typedef _REQUEST request;
 
 
-int sta_dis;//站点距离
-int sta_num;//站点数
-int length;//总长度
+int sta_dis=2;//站点距离
+int sta_num=5;//站点数
+int length=10;//总长度
+int strategy=FCFS;
 
 station* head = NULL;//链表头
 int status[MAX_NUM][3]//输出时更新，表示站点的请求状态
