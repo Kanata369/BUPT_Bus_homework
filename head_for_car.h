@@ -6,7 +6,7 @@
 #define get_off (2)
 #define FCFS (0)//先来先服务策略,first come first serve
 #define SSTF (1)//最短寻找时间优先策略,shortest seek time first
-#define SCAN (2)//顺便服务策略,by the way service
+#define SCAN (2)//顺便服务策略,不知道英文
 #define dis_max 99
 
 struct _CAR
@@ -24,7 +24,6 @@ struct _REQUEST
     int id;
     int direction;
     int distance;
-    int status;//表示请求种类
     struct _REQUEST* next;
 }
 typedef _REQUEST request;
