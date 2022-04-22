@@ -8,6 +8,7 @@
 struct _CAR
 {
     int id;
+    int flag;
     int pos;
     int direction;
     int target = -1;//用于最短寻找时间策略中，标记当前车的目标站点
