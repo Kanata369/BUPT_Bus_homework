@@ -6,7 +6,7 @@
 #define get_off (2)
 #define FCFS (0)//先来先服务策略,first come first serve
 #define SSTF (1)//最短寻找时间优先策略,shortest seek time first
-#define BTWS (2)//顺便服务策略,by the way service
+#define SCAN (2)//顺便服务策略,by the way service
 #define dis_max 99
 
 struct _CAR
